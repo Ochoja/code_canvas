@@ -1,8 +1,14 @@
-export function Header() {
+export function Header(todos) {
+  const todoLength = todos.length
+
   return (
   <>
     <header>
-      <h1 className="text-gradient">You have # open tasks</h1>
+      <div>
+
+      </div>
+
+      <h1 className="text-gradient">You have {todoLength} open tasks</h1>
     </header>
   </>
   )

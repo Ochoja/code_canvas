@@ -1,13 +1,15 @@
 import { Header } from "./components/Header"
-import { Tabs } from './components/Tabs'
+import {TodoList} from './components/TodoList'
+import {Tabs} from './components/Tabs'
 
 export default function App() {
+  const todos = [{input: 'Clean up the kitchen', complete: true},{input: 'Clean up the kitchen', complete: true},{input: 'Clean up the kitchen', complete: true}]
+
   return (
     <>
-      <Header></Header>
-      <Tabs></Tabs>
-      <div>ONe</div>
-
+      <Header todos={todos} />
+      <Tabs todos={todos} />
+      <TodoList todos={todos}  />
     </>
   )
 }
