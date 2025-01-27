@@ -5,8 +5,8 @@ import {Tabs} from './components/Tabs'
 export default function App() {
   const todos = [
                   {input: 'Clean up the kitchen', complete: true},
-                  {input: 'Clean up the kitchen', complete: true},
-                  {input: 'Clean up the kitchen', complete: true}
+                  {input: 'Wash some plates', complete: false},
+                  {input: 'Do the dishes', complete: true}
                 ]
 
   return (
