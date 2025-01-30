@@ -12,6 +12,7 @@ export default function App() {
   //               ]
 
   const [todos, setTodos] = useState([{input: 'Clean up the kitchen', complete: true}])
+  const [tab, setTab] = useState('All')
 
   function handleAddTodo(newTodo) {
     const newTodoList = [...todos, {input: newTodo, complete: false}]
@@ -21,8 +22,8 @@ export default function App() {
   return (
     <>
       <Header todos={todos} />
-      <Tabs todos={todos} />
-      <TodoList todos={todos}  />
+      <Tabs todos={todos} setTab={setTab} />
+      <TodoList todos={todos} tab={tab}/>
       <TodoInput handleAddTodo={handleAddTodo} />
     </>
   )
