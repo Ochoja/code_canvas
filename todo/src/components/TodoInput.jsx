@@ -11,6 +11,7 @@ export function TodoInput(props) {
       }} placeholder="Add Task"  />
 
       <button onClick={() => {
+        if (!inputValue) return
         handleAddTodo(inputValue)
         setInputValue('')
       }}>Add Todo</button>
