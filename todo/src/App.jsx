@@ -1,6 +1,7 @@
 import { Header } from "./components/Header"
 import {TodoList} from './components/TodoList'
 import {Tabs} from './components/Tabs'
+import {TodoInput} from './components/TodoInput'
 
 export default function App() {
   const todos = [
@@ -14,6 +15,7 @@ export default function App() {
       <Header todos={todos} />
       <Tabs todos={todos} />
       <TodoList todos={todos}  />
+      <TodoInput />
     </>
   )
 }
