@@ -5,14 +5,9 @@ import { TodoInput } from './components/TodoInput'
 import { useState } from 'react'
 
 export default function App() {
-  // const todos = [
-  //                 {input: 'Clean up the kitchen', complete: true},
-  //                 {input: 'Wash some plates', complete: false},
-  //                 {input: 'Do the dishes', complete: true}
-  //               ]
 
-  const [todos, setTodos] = useState([{input: 'Clean up the kitchen', complete: true}])
-  const [tab, setTab] = useState('All')
+  const [todos, setTodos] = useState([{input: 'Hello! Add your first todo', complete: true}])
+  const [selectedTab, setSelectedTab] = useState('All')
 
   function handleAddTodo(newTodo) {
     const newTodoList = [...todos, {input: newTodo, complete: false}]
@@ -22,8 +17,8 @@ export default function App() {
   return (
     <>
       <Header todos={todos} />
-      <Tabs todos={todos} setTab={setTab} />
-      <TodoList todos={todos} tab={tab}/>
+      <Tabs todos={todos} setSelectedTab={setSelectedTab} selectedTab={selectedTab}  />
+      <TodoList todos={todos} selectedTab={selectedTab} />
       <TodoInput handleAddTodo={handleAddTodo} />
     </>
   )
