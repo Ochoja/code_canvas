@@ -5,9 +5,7 @@ import { TodoInput } from './components/TodoInput';
 import { useState } from 'react';
 
 export default function App() {
-  const [todos, setTodos] = useState([
-    { input: 'Hello! Add your first todo', complete: true },
-  ]);
+  const [todos, setTodos] = useState([]);
   const [selectedTab, setSelectedTab] = useState('All');
 
   function handleAddTodo(newTodo) {
@@ -15,8 +13,16 @@ export default function App() {
     setTodos(newTodoList);
   }
 
+  function handleCompleteTodo(index) {
+    const newTodos = [...todos];
+    newTodos[index]['complete'] = true;
+    setTodos(newTodos);
+  }
+
   function handleDeleteTodo(index) {
-    const newTodos = todos.filter((todo, todoIndex) => todoIndex !== index);
+    const newTodos = todos.filter((val, valIndex) => {
+      return valIndex !== index;
+    });
     setTodos(newTodos);
   }
 
@@ -32,6 +38,7 @@ export default function App() {
         todos={todos}
         selectedTab={selectedTab}
         handleDeleteTodo={handleDeleteTodo}
+        handleCompleteTodo={handleCompleteTodo}
       />
       <TodoInput handleAddTodo={handleAddTodo} />
     </>
