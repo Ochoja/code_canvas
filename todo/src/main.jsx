@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './fanta.css';
-import './App.css';
+import './assets/fanta.css';
+import './assets/App.css';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
