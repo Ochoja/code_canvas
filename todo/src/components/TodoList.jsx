@@ -17,7 +17,9 @@ export function TodoList(props) {
             todo={todo}
             key={todoIndex}
             {...props}
-            todoIndex={todoIndex}></TodoCard>
+            todoIndex={todos.findIndex(
+              (val) => val.input == todo.input
+            )}></TodoCard>
         );
       })}
     </>
