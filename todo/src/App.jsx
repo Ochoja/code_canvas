@@ -37,7 +37,6 @@ export default function App() {
   useEffect(() => {
     if (!localStorage || !localStorage.getItem('todo-app')) return;
 
-    console.log('Print something');
     let db = JSON.parse(localStorage.getItem('todo-app'));
     setTodos(db.todos);
   }, []);
