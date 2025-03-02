@@ -194,6 +194,21 @@ span {
 
 /* Content Sectioning */
 
+main {
+}
+
+header {
+}
+
+footer {
+}
+
+nav {
+}
+
+section {
+}
+
 address {
   font-style: normal;
 }
@@ -273,6 +288,19 @@ a:active,
 a:focus,
 a:hover {
   text-decoration: none;
+}
+
+.link-button {
+  border: none;
+  color: var(--color-link);
+  box-shadow: none;
+  padding: 0;
+}
+
+.link-button:hover {
+  box-shadow: none;
+  transform: unset;
+  text-decoration: underline;
 }
 
 mark,

@@ -1,8 +1,15 @@
 import { Header } from './components/Header';
-import { Modal } from './components/Modal';
+import { SideNav } from './components/SideNav';
+import { PokeCard } from './components/PokeCard';
 
 function App() {
-  return <>james</>;
+  return (
+    <>
+      <Header />
+      <SideNav />
+      <PokeCard />
+    </>
+  );
 }
 
 export default App;
