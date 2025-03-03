@@ -14,7 +14,7 @@ function App() {
         selectedPokemon={selectedPokemon}
         setSelectedPokemon={setSelectedPokemon}
       />
-      <PokeCard />
+      <PokeCard selectedPokemon={selectedPokemon} />
     </>
   );
 }
