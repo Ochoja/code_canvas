@@ -7,7 +7,7 @@ export function PokeCard(props) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const { name, sprites } = data || {};
+  const { name, sprites, stats, types, moves, height, abilities } = data || {};
 
   const imgList = Object.keys(sprites || {}).filter((val) => {
     if (!sprites[val]) return false;
@@ -81,6 +81,20 @@ export function PokeCard(props) {
             );
           })}
         </div>
+        <h3>Stats</h3>
+        <div className='stats-card'>
+          {stats?.map((statObj, statIndex) => {
+            const { stat, base_stat } = statObj;
+            return (
+              <div className='stat-item' key={statIndex}>
+                <p>{stat?.name.replaceAll('-', ' ')}</p>
+                <h4>{base_stat}</h4>
+              </div>
+            );
+          })}
+        </div>
+        <h3>Moves</h3>
+        <div className='pokemon-move-grid'></div>
       </div>
     );
   }
