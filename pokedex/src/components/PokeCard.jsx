@@ -7,6 +7,8 @@ export function PokeCard(props) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const { name } = data || {};
+
   useEffect(() => {
     if (!localStorage) return;
 
@@ -42,22 +44,22 @@ export function PokeCard(props) {
 
     fetchPokemonData();
   }, [selectedPokemon]);
-  return (
-    <div>
-      {loading ? (
-        'Loading...'
-      ) : (
-        <div className='poke-card'>
-          <h4>#{getFullPokedexNumber(selectedPokemon)}</h4>
-          <h2>{data.name}</h2>
 
-          <div className='type-container'>
-            {data.types.map((type, typeIndex) => {
-              return <TypeCard key={typeIndex} type={type} />;
-            })}
-          </div>
+  if (loading) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+      <div className='poke-card'>
+        <div>
+          <h4>#{getFullPokedexNumber(selectedPokemon)}</h4>
+          <h2>{name}</h2>
         </div>
-      )}
-    </div>
-  );
+        <div className='type-container'>
+          {data?.types.map((type, typeIndex) => {
+            return <TypeCard key={typeIndex} type={type.type.name} />;
+          })}
+        </div>
+      </div>
+    );
+  }
 }
