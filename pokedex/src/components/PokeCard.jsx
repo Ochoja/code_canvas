@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { getFullPokedexNumber } from '../utils';
+import { TypeCard } from './TypeCard';
 
 export function PokeCard(props) {
   const { selectedPokemon } = props;
@@ -6,7 +8,7 @@ export function PokeCard(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (loading || !localStorage) return;
+    if (!localStorage) return;
 
     let cache = {};
     if (localStorage.getItem('pokedex')) {
@@ -22,11 +24,13 @@ export function PokeCard(props) {
       setLoading(true);
       try {
         const baseUrl = 'https://pokeapi.co/api/v2/';
-        const suffix = `pokemon/${selectedPokemon}`;
+        const suffix = `pokemon/${selectedPokemon + 1}`;
         const finalUrl = baseUrl + suffix;
         const res = await fetch(finalUrl);
         const pokemonData = await res.json();
+
         setData(pokemonData);
+        console.log(pokemonData);
         cache[selectedPokemon] = pokemonData;
         localStorage.setItem('pokedex', JSON.stringify(cache));
       } catch (error) {
@@ -37,6 +41,23 @@ export function PokeCard(props) {
     }
 
     fetchPokemonData();
-  }, [loading, selectedPokemon]);
-  return <div>{data}</div>;
+  }, [selectedPokemon]);
+  return (
+    <div>
+      {loading ? (
+        'Loading...'
+      ) : (
+        <div className='poke-card'>
+          <h4>#{getFullPokedexNumber(selectedPokemon)}</h4>
+          <h2>{data.name}</h2>
+
+          <div className='type-container'>
+            {data.types.map((type, typeIndex) => {
+              return <TypeCard key={typeIndex} type={type} />;
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }

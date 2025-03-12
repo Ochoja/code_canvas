@@ -1,3 +1,4 @@
-export function TypeCard() {
-  return <div></div>;
+export function TypeCard(props) {
+  const { type } = props;
+  return <div>{type}</div>;
 }
