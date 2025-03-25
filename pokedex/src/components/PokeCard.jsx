@@ -95,7 +95,7 @@ export function PokeCard({ selectedPokemon }) {
 
       <h3>Moves</h3>
       <div className='pokemon-move-grid'>
-        {moves?.slice(0, 10).map((moveObj, index) => (
+        {moves.map((moveObj, index) => (
           <button
             key={index}
             className='button-card pokemon-move'
