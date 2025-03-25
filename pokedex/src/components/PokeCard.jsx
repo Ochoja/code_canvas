@@ -94,7 +94,18 @@ export function PokeCard(props) {
           })}
         </div>
         <h3>Moves</h3>
-        <div className='pokemon-move-grid'></div>
+        <div className='pokemon-move-grid'>
+          {moves.map((moveObj, moveIndex) => {
+            return (
+              <button
+                key={moveIndex}
+                className='button-card pokemon-move'
+                onClick={() => {}}>
+                <p>{moveObj.move?.name.replaceAll('-', ' ')}</p>
+              </button>
+            );
+          })}
+        </div>
       </div>
     );
   }
