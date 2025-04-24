@@ -14,7 +14,9 @@ export function Navigation() {
         <div className='flex justify-center gap-4'>
           {navItems.map((item, itemIndex) => {
             return (
-              <div key={itemIndex} className='py-10'>
+              <div
+                key={itemIndex}
+                className='py-10 cursor-pointer hover:border-b-4 hover:border-b-orange'>
                 {item}
               </div>
             );
