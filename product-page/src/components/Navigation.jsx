@@ -6,7 +6,7 @@ export function Navigation() {
   const navItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
   return (
-    <nav className='flex justify-between items-center border-b-1'>
+    <nav className='flex justify-between items-center border-b-1 border-b-gray'>
       <div className='flex gap-12 items-center'>
         <div>
           <img src={logo} alt='Logo' />
