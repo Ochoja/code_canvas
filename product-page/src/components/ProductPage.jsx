@@ -1,10 +1,11 @@
 import productImg from '../assets/image-product-1.jpg';
+import carIcon from '../assets/icon-cart.svg';
 import { useState } from 'react';
 
 export default function ProductPage() {
   const [quantity, setQuantity] = useState(0);
   const buttonStyle =
-    'bg-light-gray px-2 cursor-pointer font-bold text-orange text-xl';
+    'bg-light-gray px-4 cursor-pointer font-bold text-orange text-2xl h-full';
 
   const handleQuantity = (operation) => {
     if (operation === 'add') {
@@ -37,7 +38,7 @@ export default function ProductPage() {
           the weather can offer.
         </div>
 
-        <div className='mt-4 flex gap-2 items-center'>
+        <div className='mt-4 mb-2 flex gap-2 items-center'>
           <div className='text-black text-2xl font-bold justify-center'>
             $125.00
           </div>
@@ -47,8 +48,18 @@ export default function ProductPage() {
         </div>
         <div className='line-through font-bold text-sm'>$250.00</div>
 
-        <div className='flex mt-8'>
-          <div className='flex'>
+        <div className='flex gap-4 mt-8 h-14'>
+          <div className='flex items-center'>
+            <button
+              className={buttonStyle}
+              onClick={() => {
+                handleQuantity('minus');
+              }}>
+              -
+            </button>
+            <div className='font-bold text-black bg-light-gray px-4 h-full flex items-center'>
+              {quantity}
+            </div>
             <button
               className={buttonStyle}
               onClick={() => {
@@ -57,16 +68,11 @@ export default function ProductPage() {
               }}>
               +
             </button>
-            <div>{quantity}</div>
-            <button
-              className={buttonStyle}
-              onClick={() => {
-                handleQuantity('minus');
-              }}>
-              -
-            </button>
           </div>
-          <button>Add to cart</button>
+          <button className='bg-orange text-black font-semibold flex justify-center items-center rounded-xl px-16 gap-4'>
+            <img className='text-black h-4' src={carIcon} alt='Cart Icon' />
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
