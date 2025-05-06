@@ -50,7 +50,7 @@ export default function ProductPage() {
   };
 
   return (
-    <div className='mt-12 w-[90%] mx-auto grid grid-cols-2 gap-28'>
+    <div className='mt-12 w-[90%] xl:w-[85%] mx-auto grid grid-cols-2 gap-[10%]'>
       <div>
         <div>
           <img className='rounded-xl' src={img} alt='Product-image' />
@@ -60,7 +60,7 @@ export default function ProductPage() {
             return (
               <div key={imgId}>
                 <img
-                  className='rounded-xl'
+                  className='rounded-xl cursor-pointer'
                   src={img.thumbnail}
                   alt={thumbnail1 + `${imgId}`}
                 />
@@ -114,7 +114,7 @@ export default function ProductPage() {
             </button>
           </div>
           <button className='bg-orange text-black font-semibold flex justify-center items-center rounded-xl px-16 gap-4'>
-            <img className='text-black h-4' src={carIcon} alt='Cart Icon' />
+            <img className='fill-black h-4' src={carIcon} alt='Cart Icon' />
             Add to cart
           </button>
         </div>
