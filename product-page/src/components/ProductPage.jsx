@@ -1,11 +1,43 @@
-import productImg from '../assets/image-product-1.jpg';
+import productImg1 from '../assets/image-product-1.jpg';
+import productImg2 from '../assets/image-product-2.jpg';
+import productImg3 from '../assets/image-product-3.jpg';
+import productImg4 from '../assets/image-product-4.jpg';
 import carIcon from '../assets/icon-cart.svg';
+import thumbnail1 from '../assets/image-product-1-thumbnail.jpg';
+import thumbnail2 from '../assets/image-product-2-thumbnail.jpg';
+import thumbnail3 from '../assets/image-product-3-thumbnail.jpg';
+import thumbnail4 from '../assets/image-product-4-thumbnail.jpg';
+
 import { useState } from 'react';
 
 export default function ProductPage() {
-  const [quantity, setQuantity] = useState(0);
   const buttonStyle =
     'bg-light-gray px-4 cursor-pointer font-bold text-orange text-2xl h-full';
+  const [quantity, setQuantity] = useState(0);
+  const imgs = [
+    {
+      id: 1,
+      thumbnail: thumbnail1,
+      img: productImg1,
+    },
+    {
+      id: 2,
+      thumbnail: thumbnail2,
+      img: productImg2,
+    },
+    {
+      id: 3,
+      thumbnail: thumbnail3,
+      img: productImg3,
+    },
+    {
+      id: 4,
+      thumbnail: thumbnail4,
+      img: productImg4,
+    },
+  ];
+
+  const [img, setImg] = useState(imgs[0].img);
 
   const handleQuantity = (operation) => {
     if (operation === 'add') {
@@ -21,9 +53,21 @@ export default function ProductPage() {
     <div className='mt-12 w-[90%] mx-auto grid grid-cols-2 gap-28'>
       <div>
         <div>
-          <img className='rounded-xl' src={productImg} alt='Product-img' />
+          <img className='rounded-xl' src={img} alt='Product-image' />
         </div>
-        <div></div>
+        <div className='flex gap-10 mt-6'>
+          {imgs.map((img, imgId) => {
+            return (
+              <div key={imgId}>
+                <img
+                  className='rounded-xl'
+                  src={img.thumbnail}
+                  alt={thumbnail1 + `${imgId}`}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div className='flex flex-col justify-center'>
         <div className='uppercase text-xs tracking-widest font-semibold mb-4'>
@@ -51,7 +95,7 @@ export default function ProductPage() {
         <div className='flex gap-4 mt-8 h-14'>
           <div className='flex items-center'>
             <button
-              className={buttonStyle}
+              className={buttonStyle + ' rounded-tl-xl rounded-bl-xl'}
               onClick={() => {
                 handleQuantity('minus');
               }}>
@@ -61,7 +105,7 @@ export default function ProductPage() {
               {quantity}
             </div>
             <button
-              className={buttonStyle}
+              className={buttonStyle + ' rounded-tr-xl rounded-br-xl'}
               onClick={() => {
                 handleQuantity('add');
                 console.log('add');
