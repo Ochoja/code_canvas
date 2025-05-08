@@ -3,7 +3,7 @@ import ProductPage from './components/ProductPage';
 
 function App() {
   return (
-    <div className='mx-[10%]'>
+    <div className='md:mx-[6%]'>
       <Navigation />
       <ProductPage />
     </div>

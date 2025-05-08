@@ -37,7 +37,7 @@ export default function ProductPage() {
     },
   ];
 
-  const [img, setImg] = useState(imgs[0].img);
+  const [currentimg, setCurrentImg] = useState(imgs[0].img);
 
   const handleQuantity = (operation) => {
     if (operation === 'add') {
@@ -50,17 +50,21 @@ export default function ProductPage() {
   };
 
   return (
-    <div className='mt-12 w-[90%] xl:w-[85%] mx-auto grid grid-cols-2 gap-[10%]'>
+    <div className='mt-12 w-[90%] lg:w-[90%] xl:w-[85%] mx-auto grid grid-cols-2 xl:gap-[8%] lg:gap-[5%] md:gap-[4]'>
       <div>
         <div>
-          <img className='rounded-xl' src={img} alt='Product-image' />
+          <img className='rounded-xl' src={currentimg} alt='Product-image' />
         </div>
         <div className='flex gap-10 mt-6'>
           {imgs.map((img, imgId) => {
             return (
-              <div key={imgId}>
+              <div key={imgId} onClick={() => setCurrentImg(img.img)}>
                 <img
-                  className='rounded-xl cursor-pointer'
+                  className={`rounded-xl cursor-pointer ${
+                    currentimg === img.img
+                      ? 'border-3 border-orange filter greyscale'
+                      : ''
+                  }`}
                   src={img.thumbnail}
                   alt={thumbnail1 + `${imgId}`}
                 />

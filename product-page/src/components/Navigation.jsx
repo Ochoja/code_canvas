@@ -6,12 +6,12 @@ export function Navigation() {
   const navItems = ['Collections', 'Men', 'Women', 'About', 'Contact'];
 
   return (
-    <nav className='flex justify-between items-center border-b-1 border-b-gray'>
+    <nav className='flex justify-between items-center border-b-1 border-b-gray px-4 md:px-0 py-4 md:py-0'>
       <div className='flex gap-12 items-center'>
         <div>
           <img src={logo} alt='Logo' />
         </div>
-        <div className='flex justify-center gap-4'>
+        <div className='md:flex justify-center lg:gap-4 md:gap-3 hidden'>
           {navItems.map((item, itemIndex) => {
             return (
               <div
@@ -23,7 +23,7 @@ export function Navigation() {
           })}
         </div>
       </div>
-      <div className='flex gap-8 items-center'>
+      <div className='flex lg:gap-8 md:gap-4 gap-6 items-center'>
         <div>
           <img src={cartLogo} alt='CartLogo' />
         </div>
